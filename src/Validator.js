@@ -1,5 +1,6 @@
 import ArraySchema from './ArraySchema.js';
 import NumberSchema from './NumberSchema.js';
+import ObjectSchema from './ObjectSchema.js';
 
 export default class Validator {
   number() {
@@ -10,5 +11,9 @@ export default class Validator {
   array() {
     const validator = (value) => Array.isArray(value);
     return new ArraySchema([validator]);
+  }
+
+  object() {
+    return new ObjectSchema();
   }
 }
