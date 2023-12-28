@@ -21,8 +21,7 @@ export default class ObjectSchema {
   //       }
   //     }
   //   }
-  // });
-
+  //
   // value to validate
   // { num: 54, obj: { array: [1, 2], innerObj: { num: 2, deepestObj: { num: 5 }}} }
   isValid(value) {
@@ -45,8 +44,8 @@ export default class ObjectSchema {
     // 0: key = num, value[num] = 54
     // 1: key = obj, value[obj] = { array: [1, 2], innerObj: { num: 2, deepestObj: { num: 5 }}}
     const test = _.flattenDeep(keys.map((key) => iter(value[key], key, this.validators)))
-    .every((val) => val);
-    console.log(test)
+      .every((val) => val);
+    console.log(test);
 
     return _.flattenDeep(keys.map((key) => iter(value[key], key, this.validators)))
       .every((val) => val);
